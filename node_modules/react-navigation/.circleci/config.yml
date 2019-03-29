@@ -1,0 +1,11 @@
+version: 3
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10
+    parallelism: 2
+    working_directory: ~/react-navigation
+    steps:
+      - checkout
+      - run: yarn install --frozen-lockfile
+      - run: ./scripts/test.sh
