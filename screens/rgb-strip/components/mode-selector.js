@@ -2,6 +2,8 @@ import * as React from 'react';
 import { Text, FlatList, View, StyleSheet, TouchableOpacity} from 'react-native';
 
 
+let mode;
+
 const modes = [
     {
         name: 'Still',
@@ -21,7 +23,19 @@ const modes = [
       },
 ]
 
+
 export default class ModeSelector extends React.Component {
+    
+    _onSelectMode(mode) {
+        if(mode.name == 'Still')
+            indexes.push(index);
+        else{
+            let id = indexes.indexOf(index);
+            indexes.splice(id, 1)
+        }
+        this.setState({indexes});
+    }
+    
     render() {
         return (
             <View>
@@ -30,7 +44,7 @@ export default class ModeSelector extends React.Component {
                     data={modes}
                     renderItem={({item}) => 
                     <TouchableOpacity style={styles.item}>
-                        <View >
+                        <View style={styles.item}>
                             <Text style={styles.item_text}>{item.name} </Text>
                         </View>
                     </TouchableOpacity>
@@ -51,7 +65,7 @@ const styles = StyleSheet.create({
 
     item: {
         height: 50,
-        padding: 10,
+        padding: 10, 
     },
     item_text: {
         fontSize: 20,

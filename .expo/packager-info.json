@@ -1,10 +1,10 @@
 {
-  "devToolsPort": 19003,
+  "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": 19004,
-  "packagerPid": 2780,
+  "packagerPort": null,
+  "packagerPid": null,
   "expoServerNgrokUrl": "https://6a-7yk.anonymous.smarthousep.exp.direct",
   "packagerNgrokUrl": "https://packager.6a-7yk.anonymous.smarthousep.exp.direct",
-  "ngrokPid": 9848,
+  "ngrokPid": 2272,
   "webpackServerPort": null
 }

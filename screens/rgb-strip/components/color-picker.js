@@ -1,5 +1,8 @@
 import * as React from 'react';
-import { ColorPicker } from  'react-native-status-color-picker';
+import { View, Dimensions, StyleSheet } from 'react-native';
+import { SwatchesPicker, HuePicker  } from 'react-color';
+import { ColorPicker } from 'react-native-status-color-picker';
+import { ColorWheel } from 'react-native-color-wheel';
 
 export default class ColorPickerComponent extends React.Component {
 
@@ -8,20 +11,35 @@ export default class ColorPickerComponent extends React.Component {
         selectedColor: '#F44336',
     };
 
-    onSelect(name) {
+    _onSelect(name) {
         this.setState({
             selectedColor: name
         })
         
     }
 
-    render() {
+    _onChange(color){
+
+    }
+
+    render() {  
         return (
-        <ColorPicker
-          colors={this.state.colors}
-          selectedColor={this.state.selectedColor}
-          onSelect={() => this.onSelect(this.selectedColor)}
-        />
+            <View>
+                <ColorWheel
+                initialColor="#00ee00"
+                onColorChange={color => console.log({color})}
+                onColorChangeComplete={color => _onChange(color)}
+                style={{ marginLeft: 20, padding: 40, height: 200, width: 200 }}
+                />
+                
+            </View>
         )
     }
 }
+/*
+<ColorPicker
+                colors={this.state.colors}
+                selectedColor={this.state.selectedColor}
+                onSelect={() => this._onSelect(this.selectedColor)}
+                />
+                */
